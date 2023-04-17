@@ -1,7 +1,7 @@
 import fastify from "fastify";
 import fastifyCors from "@fastify/cors";
-import { prisma } from 'lib/prisma-client'
 import { z } from 'zod'
+import { prisma } from './prisma-client'
 
 export const app = fastify();
 app.register(fastifyCors, { origin: "*" });

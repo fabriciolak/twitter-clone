@@ -1,11 +1,10 @@
 {
   "name": "@monorepo/api",
   "version": "1.0.0",
-  "main": "src/router",
-  "license": "MIT",
+   "license": "MIT",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsup src -d dist",
+    "build": "tsup src -d build",
     "start": "node dist/server.js"
   },
   "dependencies": {
