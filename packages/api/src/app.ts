@@ -1,11 +1,40 @@
 import fastify from "fastify";
 import fastifyCors from "@fastify/cors";
+import { prisma } from 'lib/prisma-client'
+import { z } from 'zod'
 
 export const app = fastify();
 app.register(fastifyCors, { origin: "*" });
 
-app.get('/', (request, reply) => {
-  reply.status(200).send({
-    message: 'ok'
+app.post('/users', async (request, reply) => {
+  console.log(request.body)
+  const userBodySchema = z.object({
+    name: z.string(),
+    email: z.string()
+  })
+
+  const { email, name } = userBodySchema.parse(request.body)
+
+  const emailAlreadyExists = await prisma.user.findUnique({
+    where: {
+      email
+    }
+  })
+
+  if (emailAlreadyExists) {
+    reply.status(405).send({
+      message: 'Email Already Exists'
+    })
+  }
+
+  const user = await prisma.user.create({
+    data: {
+      email,
+      name
+    }
+  })
+
+  reply.status(201).send({
+    data: user
   })
 })

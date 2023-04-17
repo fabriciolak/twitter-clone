@@ -1,7 +1,7 @@
 {
   "name": "@monorepo/root",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "packages/",
   "license": "MIT",
   "scripts": {
     "dev": "turbo run dev --parallel --no-daemon",
@@ -11,6 +11,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
     "turbo": "1.9.1"
   }

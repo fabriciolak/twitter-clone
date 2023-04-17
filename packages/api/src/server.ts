@@ -1,12 +1,16 @@
 import { app } from "./app";
-
-(async () => {
-  try {
-    await app.listen({
-      port: 5000
-    })
-  } catch (error) {
-    app.log.error(error)
-    process.exit(1)
-  }
+app.listen({
+  host: '0.0.0.0',
+  port: 3333
+}).then(() => {
+  console.log('👻')
 })
+// })
+// (async () => {
+//   try {
+//     await 
+//   } catch (error) {
+//     app.log.error(error)
+//     process.exit(1)
+//   }
+// })

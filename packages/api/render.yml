@@ -1,0 +1,7 @@
+services:
+  -type: web
+  name: twitter-api
+  environment: node
+  rootDir: packages/api
+  buildCommand: yarn && yarn build
+  startCommand: node dist/server.js
