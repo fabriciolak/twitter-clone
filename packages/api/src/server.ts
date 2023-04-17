@@ -1,8 +1,12 @@
 import { app } from "./app";
 
-app.listen({
-  port: 5000
+(async () => {
+  try {
+    await app.listen({
+      port: 5000
+    })
+  } catch (error) {
+    app.log.error(error)
+    process.exit(1)
+  }
 })
-  .then(() => {
-    console.log('Server running at 5000')
-  })
