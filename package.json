@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build"
+    "dev": "turbo run dev --parallel --no-daemon",
+    "build": "turbo run build --no-daemon"
   },
   "private": true,
   "workspaces": [
